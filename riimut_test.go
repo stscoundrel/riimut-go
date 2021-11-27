@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/stscoundrel/riimut/elderfuthark"
+	"github.com/stscoundrel/riimut/futhorc"
 	"github.com/stscoundrel/riimut/medievalfuthork"
 	"github.com/stscoundrel/riimut/youngerfuthark"
 )
@@ -68,6 +69,28 @@ func TestMedievalFuthorkTransformsRunesToletters(t *testing.T) {
 	const content = "ᚠᛆᚦᚽᚱ:ᚢᚮᚱ:ᛋᚮᛘ:ᛆᛋᛏ:ᛁ:ᚼᛁᛘᛚᚢᛘ:ᚼᛆᛚᚵᛆᚦ:ᚠᛆᚱᚦᚽ:ᚦᛁᛏ:ᚿᛆᛘᛆ"
 	const expected = "faþer uor som ast i himlum halgaþ farþe þit nama" // Wont tell apart eth & thorn in mid sentence.
 	result := medievalfuthork.RunesToLetters(content)
+
+	if result != expected {
+		t.Error("Did not transform runes to letters. Received", result, "expected ", expected)
+	}
+}
+
+func TestFuthorcTransformsLettersToRunes(t *testing.T) {
+	// From 8th century Franks Casket, in late West Saxon.
+	const content = "fisc.flodu.ahofonferg | enberig |"
+	const expected = "ᚠᛁᛋᚳ.ᚠᛚᚩᛞᚢ.ᚪᚻᚩᚠᚩᚾᚠᛖᚱᚷ:|:ᛖᚾᛒᛖᚱᛁᚷ:|"
+	result := futhorc.LettersToRunes(content)
+
+	if result != expected {
+		t.Error("Did not transform letters to runes. Received", result, "expected ", expected)
+	}
+}
+
+func TestFuthorcTransformsRunesToletters(t *testing.T) {
+	// From 8th century Franks Casket, in late West Saxon.
+	const content = "ᚠᛁᛋᚳ.ᚠᛚᚩᛞᚢ.ᚪᚻᚩᚠᚩᚾᚠᛖᚱᚷ:|:ᛖᚾᛒᛖᚱᛁᚷ:|"
+	const expected = "fisc.flodu.ahofonferg | enberig |"
+	result := futhorc.RunesToLetters(content)
 
 	if result != expected {
 		t.Error("Did not transform runes to letters. Received", result, "expected ", expected)
