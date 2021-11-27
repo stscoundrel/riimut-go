@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/stscoundrel/riimut/elderfuthark"
+	"github.com/stscoundrel/riimut/medievalfuthork"
 	"github.com/stscoundrel/riimut/youngerfuthark"
 )
 
@@ -40,11 +41,33 @@ func TestElderFutharkTransformsLettersToRunes(t *testing.T) {
 	}
 }
 
-func TestElderFutharkransformsRunesToletters(t *testing.T) {
+func TestElderFutharkTransformsRunesToletters(t *testing.T) {
 	// From 4th century axe in Jutland
 	const content = "ᚹᚨᚷᚨᚷᚨᛋᛏᛁᛉ:ᚨᛚᚢ:ᚹᛁᚻᚷᚢ:ᛋᛁᚲᛁᛃᚨᛉ:ᚨᛁᚦᚨᛚᚨᛏᚨᛉ"
 	const expected = "wagagastiz alu wihgu sikijaz aiþalataz"
 	result := elderfuthark.RunesToLetters(content)
+
+	if result != expected {
+		t.Error("Did not transform runes to letters. Received", result, "expected ", expected)
+	}
+}
+
+func TestMedievalFuthorkTransformsLettersToRunes(t *testing.T) {
+	// From Lord's Prayer, in Old Norse.
+	const content = "Faðer uor som ast i himlüm, halgað warðe þit nama"
+	const expected = "ᚠᛆᚦᚽᚱ:ᚢᚮᚱ:ᛋᚮᛘ:ᛆᛋᛏ:ᛁ:ᚼᛁᛘᛚᚢᛘ,:ᚼᛆᛚᚵᛆᚦ:ᚠᛆᚱᚦᚽ:ᚦᛁᛏ:ᚿᛆᛘᛆ"
+	result := medievalfuthork.LettersToRunes(content)
+
+	if result != expected {
+		t.Error("Did not transform letters to runes. Received", result, "expected ", expected)
+	}
+}
+
+func TestMedievalFuthorkTransformsRunesToletters(t *testing.T) {
+	// From Lord's Prayer, in Old Norse.
+	const content = "ᚠᛆᚦᚽᚱ:ᚢᚮᚱ:ᛋᚮᛘ:ᛆᛋᛏ:ᛁ:ᚼᛁᛘᛚᚢᛘ:ᚼᛆᛚᚵᛆᚦ:ᚠᛆᚱᚦᚽ:ᚦᛁᛏ:ᚿᛆᛘᛆ"
+	const expected = "faþer uor som ast i himlum halgaþ farþe þit nama" // Wont tell apart eth & thorn in mid sentence.
+	result := medievalfuthork.RunesToLetters(content)
 
 	if result != expected {
 		t.Error("Did not transform runes to letters. Received", result, "expected ", expected)
