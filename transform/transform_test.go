@@ -25,7 +25,7 @@ func TestTransformsWithSpecialCharacters(t *testing.T) {
 		"t": "þ",
 	}
 
-	result := Transform("täää töö ", dictionary)
+	result := Transform("täää töö", dictionary)
 
 	if result != "þæææ þøø" {
 		t.Error("Did not transform by dictionary. Received", result, "expected þææ þøø")
