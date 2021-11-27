@@ -4,10 +4,10 @@ import (
 	"strings"
 )
 
-func Transform(content string, mapping map[string]string) string {
-	result := ""
+func Transform(content string, mapping map[string]string) (result string) {
+	result = ""
 
-	for _, letter := range []rune(content) {
+	for _, letter := range content {
 		lower := strings.ToLower(string(letter))
 		foundRune, runeExists := mapping[lower]
 
@@ -18,5 +18,5 @@ func Transform(content string, mapping map[string]string) string {
 		}
 	}
 
-	return result
+	return
 }
