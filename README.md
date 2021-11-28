@@ -21,9 +21,9 @@ import (
     "fmt"
 
     "github.com/stscoundrel/riimut/elderfuthark"
-	"github.com/stscoundrel/riimut/futhorc"
-	"github.com/stscoundrel/riimut/medievalfuthork"
-	"github.com/stscoundrel/riimut/youngerfuthark"
+    "github.com/stscoundrel/riimut/futhorc"
+    "github.com/stscoundrel/riimut/medievalfuthork"
+    "github.com/stscoundrel/riimut/youngerfuthark"
 )
 
 func main() {
@@ -57,7 +57,7 @@ package main
 import (
     "fmt",
 
-	"github.com/stscoundrel/riimut/youngerfuthark"
+    "github.com/stscoundrel/riimut/youngerfuthark"
 )
 
 func main() {
