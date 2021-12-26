@@ -32,22 +32,22 @@ import (
 func main() {
     // From Old Groms runestone.
     const content := "auk tani karþi kristna"
-    youngerFuthark = youngerfuthark.LettersToRunes(content)
+    youngerFuthark := youngerfuthark.LettersToRunes(content)
     fmt.Println(youngerFuthark) // ᛅᚢᚴ:ᛏᛅᚾᛁ:ᚴᛅᚱᚦᛁ:ᚴᚱᛁᛋᛏᚾᛅ
 
     // From 4th century axe in Jutland
     const content := "wagagastiz alu wihgu sikijaz aiþalataz"
-    elderFuthark = elderfuthark.LettersToRunes(content)
+    elderFuthark := elderfuthark.LettersToRunes(content)
     fmt.Println(elderFuthark) // ᚹᚨᚷᚨᚷᚨᛋᛏᛁᛉ:ᚨᛚᚢ:ᚹᛁᚻᚷᚢ:ᛋᛁᚲᛁᛃᚨᛉ:ᚨᛁᚦᚨᛚᚨᛏᚨᛉ
 
     // From Lord's Prayer, in Old Norse.
     const content := "Faðer uor som ast i himlüm, halgað warðe þit nama"
-    medievalFuthork = medievalfuthork.LettersToRunes(content)
+    medievalFuthork := medievalfuthork.LettersToRunes(content)
     fmt.Println(medievalFuthork) // ᚠᛆᚦᚽᚱ:ᚢᚮᚱ:ᛋᚮᛘ:ᛆᛋᛏ:ᛁ:ᚼᛁᛘᛚᚢᛘ,:ᚼᛆᛚᚵᛆᚦ:ᚠᛆᚱᚦᚽ:ᚦᛁᛏ:ᚿᛆᛘᛆ
 
     // From 8th century Franks Casket, in late West Saxon.
     const content := "fisc.flodu.ahofonferg | enberig |"
-    futhorc = futhorc.LettersToRunes(content)
+    futhorc := futhorc.LettersToRunes(content)
     fmt.Println(futhorc) // ᚠᛁᛋᚳ.ᚠᛚᚩᛞᚢ.ᚪᚻᚩᚠᚩᚾᚠᛖᚱᚷ:|:ᛖᚾᛒᛖᚱᛁᚷ:|
 }
 ```
@@ -65,7 +65,7 @@ import (
 
 func main() {
     const runicText := "ᛅᚢᚴ:ᛏᛅᚾᛁ:ᚴᛅᚱᚦᛁ:ᚴᚱᛁᛋᛏᚾᛅ"
-    latinText = youngerfuthark.RunesToLetters(runicText)
+    latinText := youngerfuthark.RunesToLetters(runicText)
 
     fmt.Println(latinText) // "auk tani karþi kristna"
 }
