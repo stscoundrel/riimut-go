@@ -1,7 +1,7 @@
 package futhorc
 
 import (
-	"github.com/stscoundrel/riimut-go/transform"
+	"github.com/stscoundrel/riimut-go/internal/transform"
 )
 
 func LettersToRunes(content string) string {
