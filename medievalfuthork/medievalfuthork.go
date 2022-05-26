@@ -1,7 +1,7 @@
 package medievalfuthork
 
 import (
-	"github.com/stscoundrel/riimut-go/transform"
+	"github.com/stscoundrel/riimut-go/internals/transform"
 )
 
 func LettersToRunes(content string) string {
