@@ -1,7 +1,7 @@
 package elderfuthark
 
 import (
-	"github.com/stscoundrel/riimut-go/internals/transform"
+	"github.com/stscoundrel/riimut-go/internal/transform"
 )
 
 func LettersToRunes(content string) string {
