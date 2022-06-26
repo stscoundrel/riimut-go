@@ -5,7 +5,16 @@ import (
 )
 
 func LettersToRunes(content string) string {
-	letterMapping := getLetterMapping()
+	return LettersToLongBranchRunes(content)
+}
+
+func LettersToLongBranchRunes(content string) string {
+	letterMapping := getLettersToLongBranchRunesMapping()
+	return transform.Transform(content, letterMapping)
+}
+
+func LettersToShortTwigRunes(content string) string {
+	letterMapping := getLettersToShortTwigRunesMapping()
 	return transform.Transform(content, letterMapping)
 }
 
