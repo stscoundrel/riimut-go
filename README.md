@@ -72,6 +72,28 @@ func main() {
 
 ```
 
+Younger Futhark comes with long branch (Danish) and short twig (Norwegian & Swedish) variants.
+
+```go
+package main
+
+import (
+    "fmt",
+
+    "github.com/stscoundrel/riimut-go/youngerfuthark"
+)
+
+const letters = "aábcdðeéfghiíjklmnoópqrstþuúvwxyýzåäæöøǫþ"
+
+// Comes with named functions per style.
+longBranch := youngerfuthark.LettersToLongBranchRunes(letters)
+shortTwig := youngerfuthark.LettersToShortTwigRunes(letters)
+
+fmt.Println(longBranch) // ᛅᛅᛒᛋᛏᚦᛁᛁᚠᚴᚼᛁᛁᛁᚴᛚᛘᚾᚢᚢᛒᚴᚱᛋᛏᚦᚢᚢᚢᚢᛋᚢᚢᛋᚢᛅᛅᚢᚢᚢᚦ
+fmt.Println(shortTwig) // ᛆᛆᛒᛌᛐᚦᛁᛁᚠᚴᚽᛁᛁᛁᚴᛚᛘᚿᚢᚢᛒᚴᚱᛌᛐᚦᚢᚢᚢᚢᛌᚢᚢᛌᚢᛆᛆᚢᚢᚢᚦ
+
+```
+
 
 #### What's in the name?
 
