@@ -6,6 +6,7 @@ import (
 	"github.com/stscoundrel/riimut-go/elderfuthark"
 	"github.com/stscoundrel/riimut-go/futhorc"
 	"github.com/stscoundrel/riimut-go/medievalfuthork"
+	"github.com/stscoundrel/riimut-go/stavelessfuthark"
 	"github.com/stscoundrel/riimut-go/youngerfuthark"
 )
 
@@ -91,6 +92,28 @@ func TestFuthorcTransformsRunesToletters(t *testing.T) {
 	const content = "ᚠᛁᛋᚳ.ᚠᛚᚩᛞᚢ.ᚪᚻᚩᚠᚩᚾᚠᛖᚱᚷ:|:ᛖᚾᛒᛖᚱᛁᚷ:|"
 	const expected = "fisc.flodu.ahofonferg | enberig |"
 	result := futhorc.RunesToLetters(content)
+
+	if result != expected {
+		t.Error("Did not transform runes to letters. Received", result, "expected ", expected)
+	}
+}
+
+func TestStavelessFutharkTransformsLettersToRunes(t *testing.T) {
+	// From Old Norse text in Hög runestone.
+	const content = "kuþniutr þru sun lit rita stin þina ak bru kirþi aftiʀ bruþr sina asbiurn ak at kuþlaf"
+	const expected = "ᛍ╮ו⸜ᛁ╮⸍◟:ו◟╮:╵╮⸜:⸌ᛁ⸍:◟ᛁ⸍⸝:╵⸍ᛁ⸜:וᛁ⸜⸝:⸝ᛍ:ˏ◟╮:ᛍᛁ◟וᛁ:⸝ᛙ⸍ᛁʀ:ˏ◟╮ו◟:╵ᛁ⸜⸝:⸝╵ˏᛁ╮◟⸜:⸝ᛍ:⸝⸍:ᛍ╮ו⸌⸝ᛙ"
+	result := stavelessfuthark.LettersToRunes(content)
+
+	if result != expected {
+		t.Error("Did not transform letters to runes. Received", result, "expected ", expected)
+	}
+}
+
+func TestStavelessFutharkTransformsRunesToletters(t *testing.T) {
+	// From Old Norse text in Hög runestone.
+	const content = "ᛍ╮ו⸜ᛁ╮⸍◟:ו◟╮:╵╮⸜:⸌ᛁ⸍:◟ᛁ⸍⸝:╵⸍ᛁ⸜:וᛁ⸜⸝:⸝ᛍ:ˏ◟╮:ᛍᛁ◟וᛁ:⸝ᛙ⸍ᛁʀ:ˏ◟╮ו◟:╵ᛁ⸜⸝:⸝╵ˏᛁ╮◟⸜:⸝ᛍ:⸝⸍:ᛍ╮ו⸌⸝ᛙ"
+	const expected = "kuþniutr þru sun lit rita stin þina ak bru kirþi aftiʀ bruþr sina asbiurn ak at kuþlaf"
+	result := stavelessfuthark.RunesToLetters(content)
 
 	if result != expected {
 		t.Error("Did not transform runes to letters. Received", result, "expected ", expected)
