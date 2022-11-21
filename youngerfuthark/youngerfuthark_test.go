@@ -5,8 +5,8 @@ import (
 )
 
 func TestDefaultTransformLettersToRunes(t *testing.T) {
-	const content = "aábcdðeéfghiíjklmnoópqrstþuúvwxyýzåäæöøǫþ"
-	const expected = "ᛅᛅᛒᛋᛏᚦᛁᛁᚠᚴᚼᛁᛁᛁᚴᛚᛘᚾᚢᚢᛒᚴᚱᛋᛏᚦᚢᚢᚢᚢᛋᚢᚢᛋᚢᛅᛅᚢᚢᚢᚦ"
+	const content = "aábcdðeéfghiíjklmnoópqrstþuúvwxyýzåäæœöøǫþ"
+	const expected = "ᛅᛅᛒᛋᛏᚦᛁᛁᚠᚴᚼᛁᛁᛁᚴᛚᛘᚾᚢᚢᛒᚴᚱᛋᛏᚦᚢᚢᚢᚢᛋᚢᚢᛋᚢᛅᛅᚢᚢᚢᚢᚦ"
 	result := LettersToRunes(content)
 
 	if result != expected {
@@ -15,8 +15,8 @@ func TestDefaultTransformLettersToRunes(t *testing.T) {
 }
 
 func TestTransformsLettersToLongBranchRunes(t *testing.T) {
-	const content = "aábcdðeéfghiíjklmnoópqrstþuúvwxyýzåäæöøǫþ"
-	const expected = "ᛅᛅᛒᛋᛏᚦᛁᛁᚠᚴᚼᛁᛁᛁᚴᛚᛘᚾᚢᚢᛒᚴᚱᛋᛏᚦᚢᚢᚢᚢᛋᚢᚢᛋᚢᛅᛅᚢᚢᚢᚦ"
+	const content = "aábcdðeéfghiíjklmnoópqrstþuúvwxyýzåäæœöøǫþ"
+	const expected = "ᛅᛅᛒᛋᛏᚦᛁᛁᚠᚴᚼᛁᛁᛁᚴᛚᛘᚾᚢᚢᛒᚴᚱᛋᛏᚦᚢᚢᚢᚢᛋᚢᚢᛋᚢᛅᛅᚢᚢᚢᚢᚦ"
 	result := LettersToLongBranchRunes(content)
 
 	if result != expected {
@@ -25,8 +25,8 @@ func TestTransformsLettersToLongBranchRunes(t *testing.T) {
 }
 
 func TestTransformsLettersToShortTwigRunes(t *testing.T) {
-	const content = "aábcdðeéfghiíjklmnoópqrstþuúvwxyýzåäæöøǫþ"
-	const expected = "ᛆᛆᛒᛌᛐᚦᛁᛁᚠᚴᚽᛁᛁᛁᚴᛚᛘᚿᚢᚢᛒᚴᚱᛌᛐᚦᚢᚢᚢᚢᛌᚢᚢᛌᚢᛆᛆᚢᚢᚢᚦ"
+	const content = "aábcdðeéfghiíjklmnoópqrstþuúvwxyýzåäæœöøǫþ"
+	const expected = "ᛆᛆᛒᛌᛐᚦᛁᛁᚠᚴᚽᛁᛁᛁᚴᛚᛘᚿᚢᚢᛒᚴᚱᛌᛐᚦᚢᚢᚢᚢᛌᚢᚢᛌᚢᛆᛆᚢᚢᚢᚢᚦ"
 	result := LettersToShortTwigRunes(content)
 
 	if result != expected {
