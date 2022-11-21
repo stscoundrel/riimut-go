@@ -5,8 +5,8 @@ import (
 )
 
 func TestTransformsLettersToRunes(t *testing.T) {
-	const content = "aábcdðeéfghiíjklmnŋoópqrstþuúvwxyýzåäæöøǫþ"
-	const expected = "ᚨᚨᛒᚲᛞᚦᛖᛖᚠᚷᚻᛁᛁᛃᚲᛚᛗᚾᛜᛟᛟᛈᚲᚱᛋᛏᚦᚢᚢᚹᚹᛋᛁᛁᛉᛟᛇᛇᚢᚢᛟᚦ"
+	const content = "aábcdðeéfghiíjklmnŋoópqrstþuúvwxyýzåäæœöøǫþ"
+	const expected = "ᚨᚨᛒᚲᛞᚦᛖᛖᚠᚷᚻᛁᛁᛃᚲᛚᛗᚾᛜᛟᛟᛈᚲᚱᛋᛏᚦᚢᚢᚹᚹᛋᛁᛁᛉᛟᛇᛇᛟᚢᚢᛟᚦ"
 	result := LettersToRunes(content)
 
 	if result != expected {
