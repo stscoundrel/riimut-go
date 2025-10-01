@@ -9,9 +9,9 @@ jobs:
       matrix:
         go: ['1.17.x', '1.18.x', '1.19.x', '1.20.x', '1.21.x']
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Unit Test in Go ${{ matrix.go }}
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
           go-version: ${{ matrix.go }}
       - run: go test ./...
